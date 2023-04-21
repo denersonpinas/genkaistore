@@ -1,0 +1,22 @@
+@import 'styles/_variable';
+
+.ver-mais {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 4rem 166px;
+
+    p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 22px;
+        color: $red; 
+    }
+}

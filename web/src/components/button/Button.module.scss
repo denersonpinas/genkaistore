@@ -1,0 +1,24 @@
+@import 'styles/_variable';
+
+.btn-purchase {
+    width: 235px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $white;
+    border: 2px solid #F3134E;
+    border-radius: 100px;
+    cursor: pointer;
+
+    color: $red;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17.6px;
+    line-height: 28px;
+
+    &:hover {
+        background-color: $red;
+        color: $white;
+    }
+}

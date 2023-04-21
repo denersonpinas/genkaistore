@@ -1,0 +1,111 @@
+[
+    {
+        "id": 1,
+        "flag": "novo",
+        "image": "/assets/funko_kakashi.jpg",
+        "name": "Funko Pop Kakashi Hatake 822 Relâmpago",
+        "stars": 3,
+        "priceNow": "149,00",
+        "priceOld": "134,91",
+        "stock": true
+    }, {
+        "id": 2,
+        "flag": "novo",
+        "image": "/assets/funko_kakashi.jpg",
+        "name": "Funko Pop Kakashi Hatake 822 Relâmpago",
+        "stars": 3,
+        "priceNow": "149,00",
+        "priceOld": "134,91",
+        "stock": true
+    }, {
+        "id": 3,
+        "flag": "novo",
+        "image": "/assets/funko_kakashi.jpg",
+        "name": "Funko Pop Kakashi Hatake 822 Relâmpago",
+        "stars": 3,
+        "priceNow": "149,00",
+        "priceOld": "134,91",
+        "stock": true
+    }, {
+        "id": 4,
+        "flag": "novo",
+        "image": "/assets/funko_kakashi.jpg",
+        "name": "Funko Pop Kakashi Hatake 822 Relâmpago",
+        "stars": 3,
+        "priceNow": "149,00",
+        "priceOld": "134,91",
+        "stock": true
+    },{
+        "id": 5,
+        "flag": "novo",
+        "image": "/assets/funko_kakashi.jpg",
+        "name": "Funko Pop Kakashi Hatake 822 Relâmpago",
+        "stars": 3,
+        "priceNow": "149,00",
+        "priceOld": "134,91",
+        "stock": true
+    },{
+        "id": 6,
+        "flag": "novo",
+        "image": "/assets/funko_kakashi.jpg",
+        "name": "Funko Pop Kakashi Hatake 822 Relâmpago",
+        "stars": 3,
+        "priceNow": "149,00",
+        "priceOld": "134,91",
+        "stock": true
+    },{
+        "id": 7,
+        "flag": "novo",
+        "image": "/assets/funko_kakashi.jpg",
+        "name": "Funko Pop Kakashi Hatake 822 Relâmpago",
+        "stars": 3,
+        "priceNow": "149,00",
+        "priceOld": "134,91",
+        "stock": true
+    },{
+        "id": 8,
+        "flag": "novo",
+        "image": "/assets/funko_kakashi.jpg",
+        "name": "Funko Pop Kakashi Hatake 822 Relâmpago",
+        "stars": 3,
+        "priceNow": "149,00",
+        "priceOld": "134,91",
+        "stock": true
+    },{
+        "id": 9,
+        "flag": "novo",
+        "image": "/assets/funko_kakashi.jpg",
+        "name": "Funko Pop Kakashi Hatake 822 Relâmpago",
+        "stars": 3,
+        "priceNow": "149,00",
+        "priceOld": "134,91",
+        "stock": true
+    },{
+        "id": 10,
+        "flag": "novo",
+        "image": "/assets/funko_kakashi.jpg",
+        "name": "Funko Pop Kakashi Hatake 822 Relâmpago",
+        "stars": 3,
+        "priceNow": "149,00",
+        "priceOld": "134,91",
+        "stock": true
+    },{
+        "id": 11,
+        "flag": "novo",
+        "image": "/assets/funko_kakashi.jpg",
+        "name": "Funko Pop Kakashi Hatake 822 Relâmpago",
+        "stars": 3,
+        "priceNow": "149,00",
+        "priceOld": "134,91",
+        "stock": true
+    },{
+        "id": 12,
+        "flag": "novo",
+        "image": "/assets/funko_kakashi.jpg",
+        "name": "Funko Pop Kakashi Hatake 822 Relâmpago",
+        "stars": 3,
+        "priceNow": "149,00",
+        "priceOld": "134,91",
+        "stock": true
+    }
+]
