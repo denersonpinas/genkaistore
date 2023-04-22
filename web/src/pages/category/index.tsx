@@ -1,9 +1,20 @@
-import style from './Store.module.scss';
-import itemProduct from 'data/product.json';
+import style from './Category.module.scss';
 import { Product } from 'components/product';
 import { Filter } from 'components/filter';
+import { useParams } from 'react-router-dom';
+import product from 'data/product.json';
+import categoryName from 'data/category.json';
 
-export function Store() {
+export function Category() {
+	const { id } = useParams();
+	const category = product.filter(item => item.category == Number(id));
+	const nameCategory = categoryName.find(res => res.id == Number(id));
+
+	if(!nameCategory) {
+		return <h1></h1>;
+	}
+
+
 	return (
 		<section className={style['section-store']}>
 			<aside className={style['section-aside']}>
@@ -55,10 +66,10 @@ export function Store() {
 				</div>
 			</aside>
 			<section className={style['section-content']}>
-				<Filter pageName={'store'}/>
+				<Filter pageName={nameCategory.label}/>
 				<section className={style['section-content__products']}>
-					{itemProduct.map(product => (
-						<Product key={product.id} product={product} isFlag={true} to="http://"/>
+					{category.map(prod => (
+						<Product key={prod.id} product={prod} isFlag={true} to="http://"/>
 					))}
 				</section>
 			</section>

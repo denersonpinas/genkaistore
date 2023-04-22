@@ -7,7 +7,8 @@
         "stars": 3,
         "priceNow": "149,00",
         "priceOld": "134,91",
-        "stock": true
+        "stock": true,
+        "category": 1
     }, {
         "id": 2,
         "flag": "novo",
@@ -16,7 +17,8 @@
         "stars": 3,
         "priceNow": "149,00",
         "priceOld": "134,91",
-        "stock": true
+        "stock": true,
+        "category": 1
     }, {
         "id": 3,
         "flag": "novo",
@@ -25,7 +27,8 @@
         "stars": 3,
         "priceNow": "149,00",
         "priceOld": "134,91",
-        "stock": true
+        "stock": true,
+        "category": 1
     }, {
         "id": 4,
         "flag": "novo",
@@ -34,7 +37,8 @@
         "stars": 3,
         "priceNow": "149,00",
         "priceOld": "134,91",
-        "stock": true
+        "stock": true,
+        "category": 1
     },{
         "id": 5,
         "flag": "novo",
@@ -43,7 +47,8 @@
         "stars": 3,
         "priceNow": "149,00",
         "priceOld": "134,91",
-        "stock": true
+        "stock": true,
+        "category": 1
     },{
         "id": 6,
         "flag": "novo",
@@ -52,7 +57,8 @@
         "stars": 3,
         "priceNow": "149,00",
         "priceOld": "134,91",
-        "stock": true
+        "stock": true,
+        "category": 1
     },{
         "id": 7,
         "flag": "novo",
@@ -61,7 +67,8 @@
         "stars": 3,
         "priceNow": "149,00",
         "priceOld": "134,91",
-        "stock": true
+        "stock": true,
+        "category": 1
     },{
         "id": 8,
         "flag": "novo",
@@ -70,7 +77,8 @@
         "stars": 3,
         "priceNow": "149,00",
         "priceOld": "134,91",
-        "stock": true
+        "stock": true,
+        "category": 1
     },{
         "id": 9,
         "flag": "novo",
@@ -79,7 +87,8 @@
         "stars": 3,
         "priceNow": "149,00",
         "priceOld": "134,91",
-        "stock": true
+        "stock": true,
+        "category": 1
     },{
         "id": 10,
         "flag": "novo",
@@ -88,7 +97,8 @@
         "stars": 3,
         "priceNow": "149,00",
         "priceOld": "134,91",
-        "stock": true
+        "stock": true,
+        "category": 1
     },{
         "id": 11,
         "flag": "novo",
@@ -97,7 +107,8 @@
         "stars": 3,
         "priceNow": "149,00",
         "priceOld": "134,91",
-        "stock": true
+        "stock": true,
+        "category": 1
     },{
         "id": 12,
         "flag": "novo",
@@ -106,6 +117,7 @@
         "stars": 3,
         "priceNow": "149,00",
         "priceOld": "134,91",
-        "stock": true
+        "stock": true,
+        "category": 1
     }
 ]
