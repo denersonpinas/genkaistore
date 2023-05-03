@@ -21,7 +21,7 @@ export function Wishlist() {
 		<section className={style['section-wishlist']}>			
 			<MenuInternal/>
 			<section className={style['section-content']}>
-				<Filter pageName={'lista de desejos'} />
+				<Filter isOrder={false} pageName={'lista de desejos'} />
 				<section className={style['section-content__products']}>
 					{itemProduct.map(product => (
 						<Product key={product.id} product={product} isFlag={false}/>

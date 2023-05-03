@@ -14,7 +14,7 @@ export function MyPurshase() {
 		<section className={style['section-cart']}>
 			<MenuInternal />
 			<section className={style['section-content']}>
-				<Filter pageName='Minhas Compras' />
+				<Filter isOrder={false} pageName='Minhas Compras' />
 				<section className={style['section-content__purshases']}>
 					{myPurshase.map((item, id) => (
 						<Purshase purshase={item} key={id} />
