@@ -6,6 +6,7 @@ import product from 'data/product.json';
 import { useState } from 'react';
 import classNames from 'classnames';
 import { InfoItem } from './InfoItem';
+import { TbTruckReturn } from 'react-icons/tb';
 
 type IProduct = typeof product[0]
 
@@ -24,6 +25,10 @@ export function Purshase({ purshase }: IProps) {
 		{
 			'id': 2,
 			'title': 'Quantidade'
+		},
+		{
+			'id': 3,
+			'title': '#'
 		},
 	];
 	const { endereco, pagamento } = purshase;
@@ -126,6 +131,15 @@ export function Purshase({ purshase }: IProps) {
 											</div>
 										</td>
 										<td className={style['row']}>{purshase.produto[id].qtd}</td>
+										{purshase.status === 'pendding' ?
+											<td className={style['row']}>
+												<div className={style['row__icon--return']}>
+													<TbTruckReturn size={16} />
+												</div>
+											</td>
+											:
+											''
+										}
 									</tr>
 								))}
 							</tbody>

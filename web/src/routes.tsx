@@ -14,7 +14,9 @@ import { Cart } from 'pages/cart';
 import { Category } from 'pages/category';
 import { Home } from 'pages/home';
 import { MyPurshase } from 'pages/myPurshase';
+import { Pagamento } from 'pages/pagamento';
 import { ProductDetails } from 'pages/productDetails';
+import { Review } from 'pages/review';
 import { Store } from 'pages/store';
 import { Wishlist } from 'pages/wishlist';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -36,6 +38,8 @@ export function AppRoutes() {
 						<Route path='/nova-conta' element={<NovaConta/>}/>
 						<Route path='/esqueci-senha' element={<EsqueciSenha/>}/>
 						<Route path='/redefinir-senha' element={<RedefinirSenha/>}/>
+						<Route path='/review' element={<Review/>}/>
+						<Route path='/pagamento' element={<Pagamento/>}/>
 					</Route>
 					<Route path='/admin' element={<PageDefaultAdmin/>}>
 						<Route index element={<Admin/>}/>

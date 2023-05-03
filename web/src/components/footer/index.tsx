@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import style from './Footer.module.scss';
 import { BsFacebook, BsFillTelephoneFill, BsWhatsapp } from 'react-icons/bs';
 
@@ -44,6 +45,8 @@ export function Footer() {
 						<li className={style['menu-footer__item']}><a href=""><strong>Fale Conosco</strong></a></li>
 						<li className={style['menu-footer__item']}><a href=""><strong>Sobre Nós</strong></a></li>
 						<li className={style['menu-footer__item']}><a href=""><strong>Politicas de Privacidade</strong></a></li>
+						<li className={style['menu-footer__item']}><Link to={'/admin'}> <strong>Painel Administrativo</strong> </Link></li>
+						
 					</ul>
 					<div className={style['social']}>
 						<div>

@@ -3,10 +3,11 @@ import style from './Filter.module.scss';
 import { Select } from '../select';
 
 interface IFilter {
-    pageName: string,
+	pageName: string,
+	isOrder?: boolean
 }
 
-export function Filter({pageName} : IFilter) {
+export function Filter({ pageName, isOrder = true }: IFilter) {
 	const options = [
 		{
 			'id': 1,
@@ -39,10 +40,15 @@ export function Filter({pageName} : IFilter) {
 			</div>
 			<div className={style['section-filter__header']}>
 				<h1 className={style['title']}>{pageName}</h1>
-				<form className={style['form-order']}>
-					<label htmlFor="order" className={style['form-order__order-label']}>Ordenar por:</label>
-					<Select options={options} />
-				</form>
+				{
+					isOrder ?
+						<form className={style['form-order']}>
+							<label htmlFor="order" className={style['form-order__order-label']}>Ordenar por:</label>
+							<Select options={options} />
+						</form>
+						:
+						''
+				}
 			</div>
 		</div>
 	);

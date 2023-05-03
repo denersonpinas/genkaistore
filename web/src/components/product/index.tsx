@@ -39,7 +39,8 @@ export function Product({product, isFlag}: IProduct) {
 		>
 			<Flags 
 				icon={icons} 
-				isFlag to='/carrinho' 
+				isFlag={isFlag} 
+				to='/carrinho' 
 				flag={product.flag}/>
 			<img src={`${product.image[0].photo}`} alt="" className={style['image_product']} />
 			<div className={style['product-container__divi']}>

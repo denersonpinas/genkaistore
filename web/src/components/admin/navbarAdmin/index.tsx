@@ -26,7 +26,7 @@ const menuItems = [
 
 const userItems = [
 	{ icon: <MdPerson size={25} />, label: 'PROFILE', to: '/profiler' },
-	{ icon: <MdLogout size={25} />, label: 'LOGOUT', to: '/logout' }
+	{ icon: <MdLogout size={25} />, label: 'LOGOUT', to: '/' }
 ];
 
 export function NavbarAdmin(){

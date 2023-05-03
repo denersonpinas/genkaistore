@@ -31,7 +31,7 @@ export function Cart() {
 		<section className={style['section-cart']}>
 			<MenuInternal />
 			<section className={style['section-content']}>
-				<Filter pageName='CARRINHO' />
+				<Filter isOrder={false} pageName='CARRINHO' />
 				<section className={style['section-content__products']}>
 					{product.map((item, id) => (
 						<Itens key={id} {...item} />
