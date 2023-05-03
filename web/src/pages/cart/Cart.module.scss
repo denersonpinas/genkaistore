@@ -1,0 +1,173 @@
+@import 'styles/_variable';
+
+.section-cart {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 4rem 166px;
+
+    .section-content {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 2.5rem;
+        
+        &__products {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .section-delivery {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: left;
+            gap: 2rem;
+            padding: 2rem 0rem 4rem 0rem;
+
+            .form-frete {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+
+                &__label {
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 22px;
+                }
+
+                &__input {
+                    width: 208px;
+                    height: 50px;                    
+                    background: $white;
+                    border: 1px solid $black;
+                    border-radius: 100px;
+                    padding: 1rem;
+
+                    font-size: 1rem;
+                }
+
+                &__infor {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: .5rem;
+
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 22px;
+                }
+            }
+
+            .form-cupom {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: left;
+                gap: 1rem;
+
+                div {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 1rem;
+                }
+
+                &__label {
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 22px;
+                }
+
+                &__input {
+                    width: 208px;
+                    height: 50px;                    
+                    background: $white;
+                    border: 1px solid $black;
+                    border-radius: 100px;
+                    padding: 1rem;
+
+                    font-size: 1rem;
+                }
+                
+                &__btn-submit {
+                    width: 382px;
+                    height: 38px;
+                    padding: 5px 83.0625px 5px 82.9375px;
+                    background-color: $yellow;
+                    border-radius: 25rem;
+                    border: none;
+                    cursor: pointer;
+                    
+                    text-align: center;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 17.6px;
+                    line-height: 28px;
+                    color: $white;
+                }
+            }
+        }
+
+        .section-finished {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 2rem;
+
+            &__content {
+                width: 40%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+
+                .paragraph {
+                    text-align: left;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 17.6px;
+                    line-height: 28px;
+                    text-transform: uppercase;
+
+                    .price {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 32px;
+                        line-height: 28px;
+                    }
+                }
+            }
+
+            &__purshase {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 4rem;
+
+                &__continue {
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 22px;
+                }
+            }
+        }
+    }
+
+}

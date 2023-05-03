@@ -1,0 +1,57 @@
+@import 'styles/_variable';
+
+.section-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 6rem 0rem 2rem 0rem;
+
+    &__breadcrumb {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+
+        span {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 19px;
+            text-transform: uppercase;
+            cursor: pointer;
+
+            &:hover {
+                color: $red;
+            }
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .title {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 44px;
+            text-transform: uppercase;
+        }
+
+        .form-order {
+            width: 30%;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            gap: 1rem;
+
+            &__order-label {
+                width: 100%;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 19px;
+            }
+        }
+    }
+}

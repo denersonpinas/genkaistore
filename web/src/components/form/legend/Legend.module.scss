@@ -1,0 +1,29 @@
+@import 'styles/_variable';
+
+.legend {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    &__infor {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 175%;
+        color: #808080;
+    }
+
+    &__link {
+        text-decoration: none;
+
+        &__infor {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 175%;
+            color: $red;
+        }
+    }
+}
