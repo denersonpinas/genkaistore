@@ -1,0 +1,28 @@
+@import 'styles/_variable';
+
+.item {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding: 0 0 0 .5rem;
+    text-decoration: none;
+
+    color: #fff;
+    font-size: .8rem;
+    font-weight: 700;
+    transition: all .1s ease-in-out;
+
+    @media (min-width: 1400px) {
+        height: 4rem;
+
+        font-size: 1rem;
+    }
+
+    &:hover {
+        background-color: #fff;
+        color: $red;
+        cursor: pointer;
+    }
+}

@@ -1,68 +1,65 @@
 import style from './Product.module.scss';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 import { RiShoppingCart2Fill } from 'react-icons/ri';
-import itemProduct from 'data/product.json';
-import { IconType } from 'react-icons';
+
 import { BsFillTrashFill } from 'react-icons/bs';
 import { Button } from 'components/button';
+import { Stars } from 'components/stars';
+import { Flags } from './flags';
 
-// type IProduct = typeof itemProduct[0]
+import { DescontPrice, FilterStars } from 'functions/utils';
+import itemProduct from 'data/product.json';
+import commetsStar from 'data/comments.json';
+import classNames from 'classnames';
 
 interface IProduct {
-	product: typeof itemProduct[0],
-	to: string,
+	product: typeof itemProduct[0]
 	isFlag: boolean
 }
 
 
-export function Product({product, to, isFlag}: IProduct) {
+export function Product({product, isFlag}: IProduct) {
+	const navigate = useNavigate();
 
-	function stars(item: number) {
-		const stars = [];
-		const activeStar = <AiFillStar size={16} className={style['stars__star']} />;
-		const starSize = 16;
+	const starProduct = commetsStar.filter(stars => stars.productId === product.id);
 
-		for (let i = 0; i < item; i++) {
-			stars.push(activeStar);
+	const icons = [
+		{
+			'icon' : <RiShoppingCart2Fill size={32}/>
+		},
+		{
+			'icon' : <BsFillTrashFill size={32}/>
 		}
-
-		for (let i = item; i < 5; i++) {
-			stars.push(<AiOutlineStar size={starSize} className={style.stars} />);
-		}
-
-		return <>{stars}</>;
-	}
+	];
 
 	return (
-		<div className={style['product-container']}>
-			{isFlag ?
-				<div className={style['product-container__divi']}>
-					<span className={style['flag']}>{product.flag}</span>
-					<a href={to} target="_blank" rel="noopener noreferrer">
-						<RiShoppingCart2Fill size={32} className={style['shopping-cart']} />
-					</a>
-				</div>
-				:
-				<div className={style['product-container__divi']}>
-					<a href={to} target="_blank" rel="noopener noreferrer">
-						<BsFillTrashFill size={32} className={style['shopping-cart']} />
-					</a>
-				</div>
-			}
-			<img src={`${product.image}`} alt="" className={style['image_product']} />
+		<div
+			onClick={() => navigate(`/produtos/${product.id}`)} 
+			className={style['product-container']}
+		>
+			<Flags 
+				icon={icons} 
+				isFlag to='/carrinho' 
+				flag={product.flag}/>
+			<img src={`${product.image[0].photo}`} alt="" className={style['image_product']} />
 			<div className={style['product-container__divi']}>
 				<p className={style['name-product']}>{product.name}</p>
-				<div className={style['stars']}>
-					{stars(product.stars)}
-				</div>
+				<Stars color='yellow' starsNumber={FilterStars(starProduct)} />
 				<div>
 					<p className={style['price']}>Por<strong className={style['emphasis']}>R${product.priceNow}</strong></p>
-					<p className={style['price']}> <strong>{product.priceOld}</strong> à vista com desconto no Boleto </p>
+					<p className={style['price']}> <strong>{DescontPrice(Number(product.priceNow))}</strong> à vista com desconto no Boleto </p>
 				</div>
 			</div>
 			<div className={style['product-container__divi']}>
 				<Button label='EU QUERO'/>
-				<p className={style['infor']}>{product.stock ? <span className={style['true']}>em estoque</span> : <span className={style['false']}>indisponivel</span>}</p>
+				<p className={style['infor']}>
+					<span className={classNames({
+						[style['false']] : true,
+						[style['true']] : product.stock >= 5
+					})}>
+						{product.stock >=5 ? 'em estoque' : 'indisponivel'}
+					</span>
+				</p>
 			</div>
 		</div>
 	);

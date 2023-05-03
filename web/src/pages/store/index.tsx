@@ -2,63 +2,41 @@ import style from './Store.module.scss';
 import itemProduct from 'data/product.json';
 import { Product } from 'components/product';
 import { Filter } from 'components/filter';
+import marcas from 'data/marca.json';
+import category from 'data/category.json';
+import { AsideStore } from './aside';
 
 export function Store() {
+	const aside = [
+		{
+			'id': 1,
+			'title': 'marcas',
+			'component': filternames(marcas)
+		},
+		{
+			'id': 2,
+			'title': 'categorias',
+			'component': filternames(category)
+		}
+	];
+
+	function filternames(object: any[]): string[] {
+		const namesMarca: string[] = [];
+		object.filter(item => (
+			namesMarca.push(item.name)
+		));
+
+		return namesMarca;
+	}
+
 	return (
 		<section className={style['section-store']}>
-			<aside className={style['section-aside']}>
-				<div className={style['section-aside__filter']}>
-					<div className={style['section-aside__filter__header']}>
-						<h2 className={style['title']}>MARCAS</h2>
-					</div>
-					<div className={style['section-aside__filter__abas']}>
-						<div className={style['checkbox']}>
-							<input className={style['checkbox__input']} type="checkbox" name="category" id="category" />
-							<label className={style['checkbox__label']} htmlFor="category">FUNKO POP</label>
-						</div>
-						<div className={style['checkbox']}>
-							<input className={style['checkbox__input']} type="checkbox" name="category" id="category" />
-							<label className={style['checkbox__label']} htmlFor="category">FUNKO POP</label>
-						</div>
-						<div className={style['checkbox']}>
-							<input className={style['checkbox__input']} type="checkbox" name="category" id="category" />
-							<label className={style['checkbox__label']} htmlFor="category">FUNKO POP</label>
-						</div>
-						<div className={style['checkbox']}>
-							<input className={style['checkbox__input']} type="checkbox" name="category" id="category" />
-							<label className={style['checkbox__label']} htmlFor="category">FUNKO POP</label>
-						</div>
-					</div>
-				</div>
-				<div className={style['section-aside__filter']}>
-					<div className={style['section-aside__filter__header']}>
-						<h2 className={style['title']}>CATEGORIAS</h2>
-					</div>
-					<div className={style['section-aside__filter__abas']}>
-						<div className={style['checkbox']}>
-							<input className={style['checkbox__input']} type="checkbox" name="category" id="category" />
-							<label className={style['checkbox__label']} htmlFor="category">NARUTO</label>
-						</div>
-						<div className={style['checkbox']}>
-							<input className={style['checkbox__input']} type="checkbox" name="category" id="category" />
-							<label className={style['checkbox__label']} htmlFor="category">DRAGON BALL</label>
-						</div>
-						<div className={style['checkbox']}>
-							<input className={style['checkbox__input']} type="checkbox" name="category" id="category" />
-							<label className={style['checkbox__label']} htmlFor="category">MARVEL</label>
-						</div>
-						<div className={style['checkbox']}>
-							<input className={style['checkbox__input']} type="checkbox" name="category" id="category" />
-							<label className={style['checkbox__label']} htmlFor="category">DC</label>
-						</div>
-					</div>
-				</div>
-			</aside>
+			<AsideStore aside={aside} />
 			<section className={style['section-content']}>
-				<Filter pageName={'store'}/>
+				<Filter pageName={'store'} />
 				<section className={style['section-content__products']}>
 					{itemProduct.map(product => (
-						<Product key={product.id} product={product} isFlag={true} to="http://"/>
+						<Product key={product.id} product={product} isFlag={true} />
 					))}
 				</section>
 			</section>

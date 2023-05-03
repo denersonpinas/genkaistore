@@ -1,25 +1,38 @@
 import style from './Home.module.scss';
 import banner from 'image/Banner.jpg';
 import bannerCTA from 'image/Banner-cta.png';
-import { Colections } from './colections';
+import { Colections } from './collections';
 import { Product } from 'components/product';
 import itemProduct from 'data/product.json';
 import { VerMais } from 'components/vermais';
 import { Marcas } from './marcas';
-import { About } from 'components/about';
+import { About } from 'pages/home/about';
+import { ImageComponet } from './imageComponent';
 
 export function Home() {
+
+	const imagesPrincipal = [
+		{
+			'image' : banner,
+			'label'	: 'Banner grande vermelho com imagem do Action Figure Ryuk em promoção!',
+			'to'	: '/store'
+		}
+	];
+	const imagesWhatsapp = [
+		{
+			'image' : bannerCTA,
+			'label'	: 'Banner grande vermelho com uma chamada para conversar com atendente!',
+			'to'	: '/store'
+		}
+	];
+	
 	return (
 		<main className={style['container']}>
 			<section className={style['section-banner']}>
-				<a href="http://" target="_blank" rel="noopener noreferrer">
-					<img src={banner} alt="" className={style['section-banner__banner']} />
-				</a>
+				<ImageComponet imagesData={imagesPrincipal} />
 			</section>
 			<section className={style['section-banner-cta']}>
-				<a href="http://" target="_blank" rel="noopener noreferrer">
-					<img src={bannerCTA} alt="" className={style['section-banner-cta__banner']} />
-				</a>
+				<ImageComponet imagesData={imagesWhatsapp} />
 			</section>
 			<Colections/>
 			<div className={style['container__divi']}>
@@ -27,7 +40,7 @@ export function Home() {
 			</div>
 			<section className={style['section-product']}>
 				{itemProduct.map(product => (
-					<Product key={product.id} product={product} isFlag={true} to="http://"/>
+					<Product key={product.id} product={product} isFlag={true}/>
 				))}
 			</section>
 			<VerMais text={'veja todos os produtos'} />			

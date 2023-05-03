@@ -39,28 +39,18 @@
         }
 
         .form-order {
+            width: 30%;
             display: flex;
             align-items: center;
             justify-content: left;
             gap: 1rem;
 
             &__order-label {
+                width: 100%;
                 font-style: normal;
                 font-weight: 500;
                 font-size: 14px;
                 line-height: 19px;
-            }
-
-            &__order-input {
-                width: 280px;
-                height: 39px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: .5rem;
-                gap: 17px;
-
-                text-align: center;
             }
         }
     }

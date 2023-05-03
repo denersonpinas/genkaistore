@@ -17,10 +17,10 @@ export function Navbar() {
 			to: '/store'
 		}, {
 			label: 'SOBRE',
-			to: '/sobre'
+			to: '/#about'
 		}, {
 			label: 'CONTATO',
-			to: '/contato'
+			to: '/#footer'
 		}
 	];
 

@@ -1,4 +1,3 @@
-import { MdKeyboardArrowRight, MdLogout } from 'react-icons/md';
 import style from './Wishlist.module.scss';
 import itemProduct from 'data/whistlist.json';
 import { Product } from 'components/product';
@@ -19,15 +18,13 @@ export function Wishlist() {
 	}
 
 	return (
-		<section className={style['section-wishlist']}>
-			<aside className={style['section-aside']}>
-				<MenuInternal/>
-			</aside>
+		<section className={style['section-wishlist']}>			
+			<MenuInternal/>
 			<section className={style['section-content']}>
 				<Filter pageName={'lista de desejos'} />
 				<section className={style['section-content__products']}>
 					{itemProduct.map(product => (
-						<Product key={product.id} product={product} isFlag={false} to="http://"/>
+						<Product key={product.id} product={product} isFlag={false}/>
 					))}
 				</section>
 				<div className={style['section-content__price']}>

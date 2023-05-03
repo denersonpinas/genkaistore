@@ -14,24 +14,6 @@
         align-items: center;
         justify-content: space-between;
 
-        &:nth-child(1) {
-            .flag {
-                background-color: $yellow;
-                border-radius: 25rem;
-
-                color: $background;
-                font-style: normal;
-                font-weight: 400;
-                font-size: 10px;
-                line-height: 15px;
-                padding: 3px 10px;
-            }
-
-            .shopping-cart {
-                color: $background;
-            }
-        }
-
         &:nth-child(3) {
             flex-direction: column;
             justify-content: center;
@@ -43,16 +25,6 @@
                 font-size: 13.008px;
                 line-height: 16px;
                 text-align: center;
-            }
-    
-            .stars {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                svg {
-                    color: $yellow;
-                    cursor: pointer;
-                }
             }
     
             .price {

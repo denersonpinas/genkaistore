@@ -5,6 +5,7 @@ import myPurshase from 'data/myPurshase.json';
 import product from 'data/product.json';
 import { useState } from 'react';
 import classNames from 'classnames';
+import { InfoItem } from './InfoItem';
 
 type IProduct = typeof product[0]
 
@@ -14,9 +15,18 @@ interface IProps {
 
 export function Purshase({ purshase }: IProps) {
 	const [isOpen, setIsOpen] = useState(false);
-
-
 	const productFilter = selectProduct({ purshase }, product);
+	const column = [
+		{
+			'id': 1,
+			'title': 'Item'
+		},
+		{
+			'id': 2,
+			'title': 'Quantidade'
+		},
+	];
+	const { endereco, pagamento } = purshase;
 
 	function selectProduct({ purshase }: IProps, products: IProduct[]): IProduct[] {
 		const selectedProducts: IProduct[] = [];
@@ -54,26 +64,18 @@ export function Purshase({ purshase }: IProps) {
 	return (
 		<section className={style['purshase']}>
 			<div className={style['resume']} onClick={() => setIsOpen(!isOpen)}>
-				<div className={style['resume__infors']}>
-					<span className={style['resume__infors__infor']}><strong>NÚMERO</strong></span>
-					<span className={style['resume__infors__infor']}>#{purshase.codCompra}</span>
-				</div>
-				<div className={style['resume__infors']}>
-					<span className={style['resume__infors__infor']}><strong>DATA</strong></span>
-					<span className={style['resume__infors__infor']}>{purshase.data}</span>
-				</div>
+				<InfoItem title='NÚMERO' value={purshase.codCompra} />
+				<InfoItem title='DATA' value={purshase.data} />
+
 				{!isOpen ?
 					<div className={style['resume__infors--row']}>
 						{productFilter.map((res, id) => (
-							<img key={id} src={res.image} alt="" className={style['image-mini']} />
+							<img key={id} src={res.image[id].photo} alt="" className={style['image-mini']} />
 						))}
 					</div>
 					: ''
 				}
-				<div className={style['resume__infors']}>
-					<span className={style['resume__infors__infor']}><strong>TOTAL PAGO</strong></span>
-					<span className={style['resume__infors__infor']}>{purshase.total}</span>
-				</div>
+				<InfoItem title='TOTAL PAGO' value={purshase.total} />
 				<div className={style['resume__infors--row']}>
 					<span className={classNames({
 						[style['resume__infors__infor']]: true,
@@ -90,25 +92,25 @@ export function Purshase({ purshase }: IProps) {
 			</div>
 			{isOpen ?
 				<div className={style['complete']}>
-					<div className={style['complete__infors']}>
-						<span className={style['complete__infors__title']}><strong>ENDEREÇO</strong></span>
-						<span className={style['complete__infors__infor']}>Rua {purshase.endereco.rua}</span>
-						<span className={style['complete__infors__infor']}>Bairro {purshase.endereco.bairro}</span>
-						<span className={style['complete__infors__infor']}>Cidade {purshase.endereco.cidade}</span>
-						<span className={style['complete__infors__infor']}>{purshase.endereco.proximo}</span>
+					<div>
+						<InfoItem title="ENDEREÇO" value={`Rua ${endereco.rua}`} />
+						<InfoItem title="" value={`Bairro ${endereco.bairro}`} />
+						<InfoItem title="" value={`Cidade ${endereco.cidade}`} />
+						<InfoItem title="" value={endereco.proximo} />
 					</div>
-					<div className={style['complete__infors']}>
-						<span className={style['complete__infors__title']}><strong>Forma de Pagamento</strong></span>
-						<span className={style['complete__infors__infor']}>{purshase.pagamento.tipo}</span>
-						<span className={style['complete__infors__infor']}>{purshase.pagamento.bandeira}</span>
-						<span className={style['complete__infors__infor']}>{hideCardNumber(purshase.pagamento.número)}</span>
+					<div>
+						<InfoItem title="Forma de Pagamento" value={pagamento.tipo} />
+						<InfoItem title="" value={pagamento.bandeira} />
+						<InfoItem title="" value={hideCardNumber(pagamento.número)} />
 					</div>
+
 					<div className={style['complete__infors']}>
 						<table className={style['table']}>
 							<thead className={style['table__header']}>
 								<tr className={style['table__header__cols']}>
-									<th scope="col" className={style['col']}>Item</th>
-									<th scope="col" className={style['col']}>Quantidade</th>
+									{column.map(column => (
+										<th scope="col" key={column.id} className={style['col']}>{column.title}</th>
+									))}
 								</tr>
 							</thead>
 							<tbody className={style['table__body']}>
@@ -116,7 +118,7 @@ export function Purshase({ purshase }: IProps) {
 									<tr key={id} className={style['table__body__rows']}>
 										<td className={style['row']}>
 											<div className={style['product']}>
-												<img src={prod.image} alt="" className={style['product__image']}></img>
+												<img src={prod.image[0].photo} alt="" className={style['product__image']}></img>
 												<div className={style['product__infors']}>
 													<h3 className={style['product__infors__title']}>{prod.name}</h3>
 													<span className={style['product__infors__cod']}>Cod. {prod.id}</span>

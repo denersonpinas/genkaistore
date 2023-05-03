@@ -1,22 +1,22 @@
 [
     {
-        "label": "Action Figures",
+        "name": "Action Figures",
         "id": 1
     },
     {
-        "label": "Camisas",
+        "name": "Camisas",
         "id": 2
     },
     {
-        "label": "Canecas",
+        "name": "Canecas",
         "id": 3
     },
     {
-        "label": "Personalizados",
+        "name": "Personalizados",
         "id": 4
     },
     {
-        "label": "Funko Pop",
+        "name": "Funko Pop",
         "id": 5
     }
 ]

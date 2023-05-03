@@ -7,13 +7,6 @@
     gap: 2rem;
     padding: 4rem 166px;
 
-    .section-aside {
-        width: 20%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;        
-    }
-
     .section-content {
         width: 80%;
         display: flex;
@@ -21,57 +14,7 @@
         justify-content: space-between;
         flex-wrap: wrap;
         gap: 2.5rem;
-
-        &__breadcrumb {
-            display: flex;
-            align-items: center;
-            justify-content: left;
-    
-            span {
-                font-style: normal;
-                font-weight: 700;
-                font-size: 14px;
-                line-height: 19px;
-                cursor: pointer;
-    
-                &:hover {
-                    color: $red;
-                }
-            }
-        }
-    
-        &__header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-    
-            .form-order {
-                display: flex;
-                align-items: center;
-                justify-content: left;
-                gap: 1rem;
-    
-                &__order-label {
-                    font-style: normal;
-                    font-weight: 500;
-                    font-size: 14px;
-                    line-height: 19px;
-                }
-    
-                &__order-input {
-                    width: 280px;
-                    height: 39px;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    padding: .5rem;
-                    gap: 17px;
-    
-                    text-align: center;
-                }
-            }
-        }
-    
+        
         &__products {
             display: flex;
             align-items: center;

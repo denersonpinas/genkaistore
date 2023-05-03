@@ -36,27 +36,6 @@
             font-size: 16px;
             line-height: 27px;
         }
-
-        &__quantidade {
-            align-self: flex-end;
-            justify-self: right;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-
-            background-color: $white;
-            border: 1px solid $red;
-            border-radius: 25rem;
-            padding: .5rem;
-
-            .quantidade {
-                font-style: normal;
-                font-weight: 500;
-                font-size: 16px;
-                line-height: 16px;
-            }
-        }
     }
 
     .content-prices {

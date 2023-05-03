@@ -66,10 +66,10 @@ export function Category() {
 				</div>
 			</aside>
 			<section className={style['section-content']}>
-				<Filter pageName={nameCategory.label}/>
+				<Filter pageName={nameCategory.name}/>
 				<section className={style['section-content__products']}>
 					{category.map(prod => (
-						<Product key={prod.id} product={prod} isFlag={true} to="http://"/>
+						<Product key={prod.id} product={prod} isFlag={true}/>
 					))}
 				</section>
 			</section>

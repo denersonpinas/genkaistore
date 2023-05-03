@@ -1,75 +1,84 @@
 @import 'styles/_variable';
 
-.section-menu-left {
-    width: 100%;
+.section-aside {
+    width: 20%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    background-color: $white;
-    box-shadow: 1px 1px .5rem rgba($color: #000000, $alpha: .25);
-    border-radius: 7px;
-    margin-top: 19rem;            
-
-    .header {
+    align-items: flex-start;        
+    
+    .section-menu-left {
         width: 100%;
         display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 1rem;
-
-        .personal-infor {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            gap: .5rem;
-
-            .name {
-                font-style: normal;
-                font-weight: 700;
-                font-size: 16px;
-                line-height: 22px;
-            }
-
-            .email {
-                font-style: normal;
-                font-weight: 400;
-                font-size: 14px;
-                line-height: 19px;
-            }
-        }
-    }
-
-    .menu-left {
-        width: 100%;
-
-        &__itens {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        background-color: $white;
+        box-shadow: 1px 1px .5rem rgba($color: #000000, $alpha: .25);
+        border-radius: 7px;
+        margin-top: 19rem;            
+    
+        .header {
             width: 100%;
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-
-            &__item {
-                width: 100%;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+    
+            .personal-infor {
                 display: flex;
-                align-items: center;
-                justify-content: left;
-                gap: 2rem;
-                padding: 1rem;
-                cursor: pointer;
-
-                &:hover, &:active {
-                    background-color: $background;
-                    border-radius: 25rem;
-                }
-
-                .title {
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                gap: .5rem;
+    
+                .name {
                     font-style: normal;
-                    font-weight: 500;
+                    font-weight: 700;
                     font-size: 16px;
                     line-height: 22px;
+                }
+    
+                .email {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 19px;
+                }
+            }
+        }
+    
+        .menu-left {
+            width: 100%;
+    
+            &__itens {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+    
+                &__item {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: left;
+                    gap: 2rem;
+                    padding: 1rem;
+                    cursor: pointer;
+                    text-decoration: none;
+                    color: $black;
+    
+                    &:hover, &:active {
+                        background-color: $background;
+                        border-radius: 25rem;
+                    }
+    
+                    .title {
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 16px;
+                        line-height: 22px;
+                    }
                 }
             }
         }

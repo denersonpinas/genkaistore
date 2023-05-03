@@ -3,7 +3,7 @@ import { BsFacebook, BsFillTelephoneFill, BsWhatsapp } from 'react-icons/bs';
 
 export function Footer() {
 	return (
-		<section className={style['section-footer']}>
+		<section className={style['section-footer']} id='footer'>
 			<div className={style['section-footer__contact']}>
 				<div>
 					<h2 className={style['title']}>ATENDIMENTO</h2>

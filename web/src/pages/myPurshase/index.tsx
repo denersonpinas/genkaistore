@@ -12,9 +12,7 @@ export function MyPurshase() {
 
 	return (
 		<section className={style['section-cart']}>
-			<aside className={style['section-aside']}>
-				<MenuInternal />
-			</aside>
+			<MenuInternal />
 			<section className={style['section-content']}>
 				<Filter pageName='Minhas Compras' />
 				<section className={style['section-content__purshases']}>

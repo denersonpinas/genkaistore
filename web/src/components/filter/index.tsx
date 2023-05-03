@@ -1,11 +1,35 @@
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import style from './Filter.module.scss';
+import { Select } from '../select';
 
 interface IFilter {
     pageName: string,
 }
 
 export function Filter({pageName} : IFilter) {
+	const options = [
+		{
+			'id': 1,
+			'option': 'Mais Vendidos',
+			'value': 'maisVendidos'
+		},
+		{
+			'id': 2,
+			'option': 'Melhor Avaliação',
+			'value': 'melhorAvaliação'
+		},
+		{
+			'id': 3,
+			'option': 'Menor Preço',
+			'value': 'menorPreço'
+		},
+		{
+			'id': 4,
+			'option': 'Maior Preço',
+			'value': 'maiorPreço'
+		},
+	];
+
 	return (
 		<div className={style['section-filter']}>
 			<div className={style['section-filter__breadcrumb']}>
@@ -15,14 +39,9 @@ export function Filter({pageName} : IFilter) {
 			</div>
 			<div className={style['section-filter__header']}>
 				<h1 className={style['title']}>{pageName}</h1>
-				<form action="" className={style['form-order']}>
+				<form className={style['form-order']}>
 					<label htmlFor="order" className={style['form-order__order-label']}>Ordenar por:</label>
-					<select name="order" id="order" className={style['form-order__order-input']}>
-						<option value="maisVendidos">Mais Vendidos</option>
-						<option value="melhorAvaliação">Melhor Avaliação</option>
-						<option value="menorPreço">Menor Preço</option>
-						<option value="maiorPreço">MaiorPreço</option>
-					</select>
+					<Select options={options} />
 				</form>
 			</div>
 		</div>
