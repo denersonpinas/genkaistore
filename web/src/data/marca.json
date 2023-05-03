@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Dragon Ball",
+        "photo": "assets/marca/dbz.png"
+    },{
+        "id": 2,
+        "name": "Death Note",
+        "photo": "assets/marca/death.png"
+    },{
+        "id": 3,
+        "name": "Naruto",
+        "photo": "assets/marca/naruto.png"
+    },{
+        "id": 4,
+        "name": "Marvel",
+        "photo": "assets/marca/marvel.png"
+    },{
+        "id": 5,
+        "name": "One Piece",
+        "photo": "assets/marca/op.png"
+    }
+]
