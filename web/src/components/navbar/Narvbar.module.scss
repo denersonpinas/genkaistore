@@ -57,19 +57,10 @@
             }
         }
 
-        .icon-shopping{
+        .icon{
             color: $black;
             cursor: pointer;
             
-            &:hover {
-                color: $yellow;
-            }
-        }
-
-        .icon-heart {
-            color: $black;
-            cursor: pointer;
-
             &:hover {
                 color: $yellow;
             }

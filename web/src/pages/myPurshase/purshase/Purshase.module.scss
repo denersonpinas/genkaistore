@@ -151,6 +151,14 @@
                                     }
                                 }
                             }
+
+                            &__icon--return {
+                                padding: .5rem 1rem;
+                                border-radius: 7px;
+                                cursor: pointer;
+                                background-color: $yellow;
+                                color: $white;
+                            }
                         }
 
                         .row:nth-child(1) {

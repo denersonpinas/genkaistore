@@ -12,6 +12,7 @@ interface IFlags {
 }
 
 export function Flags({ icon, to, isFlag, flag }: IFlags) {
+	console.log(isFlag);
 	return (
 		<div className={style['section-flag']}>
 			{isFlag ? <span className={style['flag']}>{flag}</span> : ''}

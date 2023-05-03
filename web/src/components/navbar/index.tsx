@@ -3,6 +3,7 @@ import { MenuSuperior } from './menusuperior';
 import { AiFillHeart, AiFillShopping, AiOutlineSearch } from 'react-icons/ai';
 import logoGenkai from 'image/logo-genkai.png';
 import { Link } from 'react-router-dom';
+import { MdNotifications } from 'react-icons/md';
 
 export function Navbar() {
 	const routes = [
@@ -15,6 +16,9 @@ export function Navbar() {
 		}, {
 			label: 'STORE',
 			to: '/store'
+		}, {
+			label: 'LISTA DE DESEJOS',
+			to: '/lista-de-desejos'
 		}, {
 			label: 'SOBRE',
 			to: '/#about'
@@ -39,11 +43,11 @@ export function Navbar() {
 					</form>
 				</div>
 				<div className={style['icons']}>
-					<Link key={'heart'} to={'/lista-de-desejos'}>
-						<AiFillHeart size={25} className={style['icon-heart']} />
+					<Link key={'notify'} to={'/carrinho'}>
+						<MdNotifications size={32} className={style['icon']} />
 					</Link>
 					<Link key={'cart'} to={'/carrinho'}>
-						<AiFillShopping size={32} className={style['icon-shopping']} />
+						<AiFillShopping size={32} className={style['icon']} />
 					</Link>					
 				</div>
 			</div>
