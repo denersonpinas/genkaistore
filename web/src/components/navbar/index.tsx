@@ -43,6 +43,7 @@ export function Navbar() {
 					</form>
 				</div>
 				<div className={style['icons']}>
+					<Link to={'/login'} className={style['icons__label']}>Login / Cadastrar</Link>
 					<Link key={'notify'} to={'/carrinho'}>
 						<MdNotifications size={32} className={style['icon']} />
 					</Link>
