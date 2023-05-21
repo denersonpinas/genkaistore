@@ -1,0 +1,42 @@
+{
+  "name": "admin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.335.0",
+    "@types/mime": "^3.0.1",
+    "@types/node": "20.2.1",
+    "@types/react": "18.2.6",
+    "@types/react-dom": "18.2.4",
+    "@types/uuid": "^9.0.1",
+    "autoprefixer": "10.4.14",
+    "axios": "^1.4.0",
+    "eslint": "8.41.0",
+    "eslint-config-next": "13.4.3",
+    "mime-types": "^2.1.35",
+    "mongoose": "^7.2.0",
+    "multiparty": "^4.2.3",
+    "next": "13.4.3",
+    "nookies": "^2.5.2",
+    "postcss": "8.4.23",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.43.9",
+    "react-icons": "^4.8.0",
+    "react-sortablejs": "^6.1.4",
+    "react-spinners": "^0.13.8",
+    "tailwindcss": "3.3.2",
+    "typescript": "5.0.4",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/cookie": "^0.5.1",
+    "@types/sortablejs": "^1.15.1"
+  }
+}

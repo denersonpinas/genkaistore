@@ -21,6 +21,17 @@
             height: 50px;
         }
 
+        .icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            
+            &__label {
+                color: $black;
+            }
+        }
+
         .search {
             display: flex;
             align-items: flex-start;
