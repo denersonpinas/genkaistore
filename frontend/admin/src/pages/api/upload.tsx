@@ -25,8 +25,8 @@ export default async function handler(
   const client = new S3Client({
     region: 'us-east-2',
     credentials: {
-      accessKeyId: process.env.S3_ACCESS_KEY,
-      secretAccessKey: process.env.S3_SECRET_ACCESS_KEY
+      accessKeyId: process.env.S3_ACCESS_KEY || ${{ secrets.s3_access_key }},
+      secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || ${{ secrets.s3_secret_access_key }}
     },
   })
   const links = []
