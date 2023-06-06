@@ -7,7 +7,7 @@ interface IButton {
 
 export function Button({ label, onClick, classname, icon} : IButton) {
     return(
-        <button className={classname + ' w-full'}>
+        <button onClick={onClick} className={classname + ' w-full'}>
             {icon ? icon : ''}
             {label}
         </button>

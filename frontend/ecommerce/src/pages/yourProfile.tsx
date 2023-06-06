@@ -34,7 +34,6 @@ export default function YourProfile({
 
 
         const dados = { name, sobrenome, email, whatsapp }
-        console.log(dados)
 
         if (_id) {
             // update

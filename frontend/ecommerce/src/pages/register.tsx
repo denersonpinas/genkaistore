@@ -1,15 +1,28 @@
-import { IUser } from "@/types/auth";
+import { IUserRegister } from "@/types/auth";
 import Image from "next/image";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { MdAppRegistration } from 'react-icons/md'
 import { Layout } from "@/components/layout";
+import { api } from "@/service/api";
+import { useContext } from "react";
+import { AuthContext } from "@/context/AuthContext";
+import axios from "axios";
 
 export default function Register() {
     const { register, handleSubmit } = useForm()
+    const { registerIn } = useContext(AuthContext)
 
-    function handRegister(data: IUser) {
-        // console.log(data)
+    async function handRegister(data: IUserRegister) {
+        // const { login, senha } = data
+        registerIn(data)
+        // const response = await axios.post(
+        //     'http://localhost:8022/usuario/registerUser',
+        //     { 
+        //             login:"João", 
+        //             senha:"testando"
+        //     })
+        // console.log(response.data)
     }
 
     return (
@@ -73,6 +86,19 @@ export default function Register() {
                                 </div>
                             </div>
                             <div>
+                                <label htmlFor="senha">Senha</label>
+                                <div className="mt-2">
+                                    <input
+                                        id="senha"
+                                        {...register('senha')}
+                                        name="senha"
+                                        type="password"
+                                        autoComplete="current-password"
+                                        required
+                                        placeholder="Digite sua senha..." />
+                                </div>
+                            </div>
+                            {/* <div>
                                 <label htmlFor="password">Senha</label>
                                 <div className="mt-2">
                                     <input
@@ -84,7 +110,7 @@ export default function Register() {
                                         required
                                         placeholder="Digite sua senha..." />
                                 </div>
-                            </div>
+                            </div> */}
 
                             <div className="flex min-h-full flex-col justify-center space-y-6">
                                 <button type="submit" className="btn-primary">

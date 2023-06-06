@@ -1,22 +1,24 @@
-import { Button } from '@/components/button/indext'
-import { Layout } from '@/components/layout'
 import Image from 'next/image'
-import { AiOutlineStar } from 'react-icons/ai'
+import { Product } from '../../models/product'
+import Link from 'next/link'
+import { NewProduct } from '@/components/newProduct'
+import { mongooseConnect } from '../../lib/mongoose'
+import { Layout } from '@/components/layout'
 
-import { BsFillCartFill, BsFillEmojiHeartEyesFill } from 'react-icons/bs'
-
-export default function Home() {
+export default function Home({ featuredProduct, newProducts }) {
   return (
     <Layout>
       <section className="w-full">
-        <Image
-          src={'/assets/Banner.jpg'}
-          alt='Banner Riuk Shinigami'
-          className='w-full aspect-auto'
-          width={1512}
-          height={600}
-          priority
-        />
+        <Link href={'/product/' + featuredProduct?._id}>
+          <Image
+            src={'/assets/Banner.jpg'}
+            alt='Banner Riuk Shinigami'
+            className='w-full aspect-auto'
+            width={1512}
+            height={600}
+            priority
+          />
+        </Link>
 
         <section className="flex flex-col gap-16 px-4 py-16 sm:px-8 lg:px-[166px]">
           <Image
@@ -30,7 +32,7 @@ export default function Home() {
 
           <div className="flex flex-col gap-8 w-full">
             <h2>PRA QUEM VOCÊ ESTÁ COMPRANDO?</h2>
-            <div className="flex flex-col w-full justify-between lg:flex-row">
+            <div className="flex flex-col w-full justify-between xl:flex-row">
               <Image
                 src={'/assets/namorado.png'}
                 alt='Banner CTA categoria namorado'
@@ -62,280 +64,10 @@ export default function Home() {
         </section>
 
 
-        <section className="flex flex-wrap px-4 py-16 sm:px-8 lg:px-[166px] lg:gap-11">
-          <div className="w-full flex flex-col gap-4 bg-white shadow-md rounded-md p-4 lg:w-[264px]">
-            <div className="flex justify-between items-center">
-              <span className="flex justify-center items-center sub-title text-white bg-secundary py-2 px-4 rounded-full">novo</span>
-              <BsFillCartFill size={25} className='text-gray-500 hover:text-secundary' />
-            </div>
-            <img src="https://next-genkaistore.s3.amazonaws.com/1684639366341.jpg" alt="Riuk Shinigami" className='rounded-md' />
-            <h2 className="text-center lg:text-2xl">Ryuk shinigami</h2>
-            <div className="flex justify-center gap-4 text-secundary">
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <span className="sub-title">Por: <strong className='text-2xl font-bold'>R$ 149,90</strong></span>
-              <span className="seb-title text-center"><strong>R$ 134,91</strong>à vista com  desconto Boleto</span>
-            </div>
-            <Button classname='btn-primary' label={'eu quero'} icon={<BsFillEmojiHeartEyesFill size={25} />} />
-            <span className="text-sm text-center">em estoque</span>
-          </div>
-          <div className="w-full flex flex-col gap-4 bg-white shadow-md rounded-md p-4 lg:w-[264px]">
-            <div className="flex justify-between items-center">
-              <span className="flex justify-center items-center sub-title text-white bg-secundary py-2 px-4 rounded-full">novo</span>
-              <BsFillCartFill size={25} className='text-gray-500 hover:text-secundary' />
-            </div>
-            <img src="https://next-genkaistore.s3.amazonaws.com/1684639366341.jpg" alt="Riuk Shinigami" className='rounded-md' />
-            <h2 className="text-center lg:text-2xl">Ryuk shinigami</h2>
-            <div className="flex justify-center gap-4 text-secundary">
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <span className="sub-title">Por: <strong className='text-2xl font-bold'>R$ 149,90</strong></span>
-              <span className="seb-title text-center"><strong>R$ 134,91</strong>à vista com  desconto Boleto</span>
-            </div>
-            <Button classname='btn-primary' label={'eu quero'} icon={<BsFillEmojiHeartEyesFill size={25} />} />
-            <span className="text-sm text-center">em estoque</span>
-          </div>
-          <div className="w-full flex flex-col gap-4 bg-white shadow-md rounded-md p-4 lg:w-[264px]">
-            <div className="flex justify-between items-center">
-              <span className="flex justify-center items-center sub-title text-white bg-secundary py-2 px-4 rounded-full">novo</span>
-              <BsFillCartFill size={25} className='text-gray-500 hover:text-secundary' />
-            </div>
-            <img src="https://next-genkaistore.s3.amazonaws.com/1684639366341.jpg" alt="Riuk Shinigami" className='rounded-md' />
-            <h2 className="text-center lg:text-2xl">Ryuk shinigami</h2>
-            <div className="flex justify-center gap-4 text-secundary">
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <span className="sub-title">Por: <strong className='text-2xl font-bold'>R$ 149,90</strong></span>
-              <span className="seb-title text-center"><strong>R$ 134,91</strong>à vista com  desconto Boleto</span>
-            </div>
-            <Button classname='btn-primary' label={'eu quero'} icon={<BsFillEmojiHeartEyesFill size={25} />} />
-            <span className="text-sm text-center">em estoque</span>
-          </div>
-          <div className="w-full flex flex-col gap-4 bg-white shadow-md rounded-md p-4 lg:w-[264px]">
-            <div className="flex justify-between items-center">
-              <span className="flex justify-center items-center sub-title text-white bg-secundary py-2 px-4 rounded-full">novo</span>
-              <BsFillCartFill size={25} className='text-gray-500 hover:text-secundary' />
-            </div>
-            <img src="https://next-genkaistore.s3.amazonaws.com/1684639366341.jpg" alt="Riuk Shinigami" className='rounded-md' />
-            <h2 className="text-center lg:text-2xl">Ryuk shinigami</h2>
-            <div className="flex justify-center gap-4 text-secundary">
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <span className="sub-title">Por: <strong className='text-2xl font-bold'>R$ 149,90</strong></span>
-              <span className="seb-title text-center"><strong>R$ 134,91</strong>à vista com  desconto Boleto</span>
-            </div>
-            <Button classname='btn-primary' label={'eu quero'} icon={<BsFillEmojiHeartEyesFill size={25} />} />
-            <span className="text-sm text-center">em estoque</span>
-          </div>
-          <div className="w-full flex flex-col gap-4 bg-white shadow-md rounded-md p-4 lg:w-[264px]">
-            <div className="flex justify-between items-center">
-              <span className="flex justify-center items-center sub-title text-white bg-secundary py-2 px-4 rounded-full">novo</span>
-              <BsFillCartFill size={25} className='text-gray-500 hover:text-secundary' />
-            </div>
-            <img src="https://next-genkaistore.s3.amazonaws.com/1684639366341.jpg" alt="Riuk Shinigami" className='rounded-md' />
-            <h2 className="text-center lg:text-2xl">Ryuk shinigami</h2>
-            <div className="flex justify-center gap-4 text-secundary">
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <span className="sub-title">Por: <strong className='text-2xl font-bold'>R$ 149,90</strong></span>
-              <span className="seb-title text-center"><strong>R$ 134,91</strong>à vista com  desconto Boleto</span>
-            </div>
-            <Button classname='btn-primary' label={'eu quero'} icon={<BsFillEmojiHeartEyesFill size={25} />} />
-            <span className="text-sm text-center">em estoque</span>
-          </div>
-          <div className="w-full flex flex-col gap-4 bg-white shadow-md rounded-md p-4 lg:w-[264px]">
-            <div className="flex justify-between items-center">
-              <span className="flex justify-center items-center sub-title text-white bg-secundary py-2 px-4 rounded-full">novo</span>
-              <BsFillCartFill size={25} className='text-gray-500 hover:text-secundary' />
-            </div>
-            <img src="https://next-genkaistore.s3.amazonaws.com/1684639366341.jpg" alt="Riuk Shinigami" className='rounded-md' />
-            <h2 className="text-center lg:text-2xl">Ryuk shinigami</h2>
-            <div className="flex justify-center gap-4 text-secundary">
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <span className="sub-title">Por: <strong className='text-2xl font-bold'>R$ 149,90</strong></span>
-              <span className="seb-title text-center"><strong>R$ 134,91</strong>à vista com  desconto Boleto</span>
-            </div>
-            <Button classname='btn-primary' label={'eu quero'} icon={<BsFillEmojiHeartEyesFill size={25} />} />
-            <span className="text-sm text-center">em estoque</span>
-          </div>
-          <div className="w-full flex flex-col gap-4 bg-white shadow-md rounded-md p-4 lg:w-[264px]">
-            <div className="flex justify-between items-center">
-              <span className="flex justify-center items-center sub-title text-white bg-secundary py-2 px-4 rounded-full">novo</span>
-              <BsFillCartFill size={25} className='text-gray-500 hover:text-secundary' />
-            </div>
-            <img src="https://next-genkaistore.s3.amazonaws.com/1684639366341.jpg" alt="Riuk Shinigami" className='rounded-md' />
-            <h2 className="text-center lg:text-2xl">Ryuk shinigami</h2>
-            <div className="flex justify-center gap-4 text-secundary">
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <span className="sub-title">Por: <strong className='text-2xl font-bold'>R$ 149,90</strong></span>
-              <span className="seb-title text-center"><strong>R$ 134,91</strong>à vista com  desconto Boleto</span>
-            </div>
-            <Button classname='btn-primary' label={'eu quero'} icon={<BsFillEmojiHeartEyesFill size={25} />} />
-            <span className="text-sm text-center">em estoque</span>
-          </div>
-          <div className="w-full flex flex-col gap-4 bg-white shadow-md rounded-md p-4 lg:w-[264px]">
-            <div className="flex justify-between items-center">
-              <span className="flex justify-center items-center sub-title text-white bg-secundary py-2 px-4 rounded-full">novo</span>
-              <BsFillCartFill size={25} className='text-gray-500 hover:text-secundary' />
-            </div>
-            <img src="https://next-genkaistore.s3.amazonaws.com/1684639366341.jpg" alt="Riuk Shinigami" className='rounded-md' />
-            <h2 className="text-center lg:text-2xl">Ryuk shinigami</h2>
-            <div className="flex justify-center gap-4 text-secundary">
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <span className="sub-title">Por: <strong className='text-2xl font-bold'>R$ 149,90</strong></span>
-              <span className="seb-title text-center"><strong>R$ 134,91</strong>à vista com  desconto Boleto</span>
-            </div>
-            <Button classname='btn-primary' label={'eu quero'} icon={<BsFillEmojiHeartEyesFill size={25} />} />
-            <span className="text-sm text-center">em estoque</span>
-          </div>
-          <div className="w-full flex flex-col gap-4 bg-white shadow-md rounded-md p-4 lg:w-[264px]">
-            <div className="flex justify-between items-center">
-              <span className="flex justify-center items-center sub-title text-white bg-secundary py-2 px-4 rounded-full">novo</span>
-              <BsFillCartFill size={25} className='text-gray-500 hover:text-secundary' />
-            </div>
-            <img src="https://next-genkaistore.s3.amazonaws.com/1684639366341.jpg" alt="Riuk Shinigami" className='rounded-md' />
-            <h2 className="text-center lg:text-2xl">Ryuk shinigami</h2>
-            <div className="flex justify-center gap-4 text-secundary">
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <span className="sub-title">Por: <strong className='text-2xl font-bold'>R$ 149,90</strong></span>
-              <span className="seb-title text-center"><strong>R$ 134,91</strong>à vista com  desconto Boleto</span>
-            </div>
-            <Button classname='btn-primary' label={'eu quero'} icon={<BsFillEmojiHeartEyesFill size={25} />} />
-            <span className="text-sm text-center">em estoque</span>
-          </div>
-          <div className="w-full flex flex-col gap-4 bg-white shadow-md rounded-md p-4 lg:w-[264px]">
-            <div className="flex justify-between items-center">
-              <span className="flex justify-center items-center sub-title text-white bg-secundary py-2 px-4 rounded-full">novo</span>
-              <BsFillCartFill size={25} className='text-gray-500 hover:text-secundary' />
-            </div>
-            <img src="https://next-genkaistore.s3.amazonaws.com/1684639366341.jpg" alt="Riuk Shinigami" className='rounded-md' />
-            <h2 className="text-center lg:text-2xl">Ryuk shinigami</h2>
-            <div className="flex justify-center gap-4 text-secundary">
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <span className="sub-title">Por: <strong className='text-2xl font-bold'>R$ 149,90</strong></span>
-              <span className="seb-title text-center"><strong>R$ 134,91</strong>à vista com  desconto Boleto</span>
-            </div>
-            <Button classname='btn-primary' label={'eu quero'} icon={<BsFillEmojiHeartEyesFill size={25} />} />
-            <span className="text-sm text-center">em estoque</span>
-          </div>
-          <div className="w-full flex flex-col gap-4 bg-white shadow-md rounded-md p-4 lg:w-[264px]">
-            <div className="flex justify-between items-center">
-              <span className="flex justify-center items-center sub-title text-white bg-secundary py-2 px-4 rounded-full">novo</span>
-              <BsFillCartFill size={25} className='text-gray-500 hover:text-secundary' />
-            </div>
-            <img src="https://next-genkaistore.s3.amazonaws.com/1684639366341.jpg" alt="Riuk Shinigami" className='rounded-md' />
-            <h2 className="text-center lg:text-2xl">Ryuk shinigami</h2>
-            <div className="flex justify-center gap-4 text-secundary">
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <span className="sub-title">Por: <strong className='text-2xl font-bold'>R$ 149,90</strong></span>
-              <span className="seb-title text-center"><strong>R$ 134,91</strong>à vista com  desconto Boleto</span>
-            </div>
-            <Button classname='btn-primary' label={'eu quero'} icon={<BsFillEmojiHeartEyesFill size={25} />} />
-            <span className="text-sm text-center">em estoque</span>
-          </div>
-          <div className="w-full flex flex-col gap-4 bg-white shadow-md rounded-md p-4 lg:w-[264px]">
-            <div className="flex justify-between items-center">
-              <span className="flex justify-center items-center sub-title text-white bg-secundary py-2 px-4 rounded-full">novo</span>
-              <BsFillCartFill size={25} className='text-gray-500 hover:text-secundary' />
-            </div>
-            <img src="https://next-genkaistore.s3.amazonaws.com/1684639366341.jpg" alt="Riuk Shinigami" className='rounded-md' />
-            <h2 className="text-center lg:text-2xl">Ryuk shinigami</h2>
-            <div className="flex justify-center gap-4 text-secundary">
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <span className="sub-title">Por: <strong className='text-2xl font-bold'>R$ 149,90</strong></span>
-              <span className="seb-title text-center"><strong>R$ 134,91</strong>à vista com  desconto Boleto</span>
-            </div>
-            <Button classname='btn-primary' label={'eu quero'} icon={<BsFillEmojiHeartEyesFill size={25} />} />
-            <span className="text-sm text-center">em estoque</span>
-          </div>
-          <div className="w-full flex flex-col gap-4 bg-white shadow-md rounded-md p-4 lg:w-[264px]">
-            <div className="flex justify-between items-center">
-              <span className="flex justify-center items-center sub-title text-white bg-secundary py-2 px-4 rounded-full">novo</span>
-              <BsFillCartFill size={25} className='text-gray-500 hover:text-secundary' />
-            </div>
-            <img src="https://next-genkaistore.s3.amazonaws.com/1684639366341.jpg" alt="Riuk Shinigami" className='rounded-md' />
-            <h2 className="text-center lg:text-2xl">Ryuk shinigami</h2>
-            <div className="flex justify-center gap-4 text-secundary">
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-              <AiOutlineStar size={16} />
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <span className="sub-title">Por: <strong className='text-2xl font-bold'>R$ 149,90</strong></span>
-              <span className="seb-title text-center"><strong>R$ 134,91</strong>à vista com  desconto Boleto</span>
-            </div>
-            <Button classname='btn-primary' label={'eu quero'} icon={<BsFillEmojiHeartEyesFill size={25} />} />
-            <span className="text-sm text-center">em estoque</span>
-          </div>
+        <section className="flex flex-wrap px-4 py-16 gap-8 sm:px-8 lg:px-[166px] lg:gap-[20%] 2xl:gap-[6.6%]">
+          {newProducts.map(prod => (
+            <NewProduct key={prod._id} newProducts={prod} />
+          ))}
         </section>
 
         <section className="flex flex-col gap-4 px-4 py-16 sm:px-8 lg:px-[166px]">
@@ -384,7 +116,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full flex flex-col gap-4 bg-secundary px-4 py-16 sm:px-8 lg:px-[166px]">
+        <section className="w-full flex flex-col gap-4 bg-secundary px-4 py-16 sm:px-8 lg:px-[166px]" id='about'>
           <h2 className='uppercase'>sobre nós</h2>
           <div className="flex flex-col gap-4">
             <p className="sub-title">
@@ -398,4 +130,17 @@ export default function Home() {
       </section>
     </Layout>
   )
+}
+
+export async function getServerSideProps() {
+  const featuredProductID = '64698f1825de3febf5bac6de'
+  await mongooseConnect();
+  const featuredProduct = await Product.findById(featuredProductID)
+  const newProducts = await Product.find({}, null, { sort: { '_id': -1 }, limit: 10 })
+  return {
+    props: {
+      featuredProduct: JSON.parse(JSON.stringify(featuredProduct)),
+      newProducts: JSON.parse(JSON.stringify(newProducts))
+    }
+  }
 }

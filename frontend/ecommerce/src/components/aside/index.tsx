@@ -16,7 +16,7 @@ export function Aside() {
         {
             'id': 2,
             'name': 'Carrinho',
-            'to': '/carrinho',
+            'to': '/cart',
             'icon': <HiShoppingCart size={32} />
         },
         {

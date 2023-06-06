@@ -1,40 +1,67 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AiOutlineSearch } from 'react-icons/ai'
 import { MdNotifications } from 'react-icons/md'
 import { BiMenuAltLeft } from 'react-icons/bi'
+import { CartContext } from "@/context/CartContext";
+import axios from "axios";
 
 export function Navbar() {
+    const { cartProducts } = useContext(CartContext)
+
     const [isOpen, setIsOpen] = useState<Boolean>(false)
+    const [category, setCategory] = useState([])
+    const [isSubMenuCategory, setIsSubMenyCategory] = useState(false)
+
+
     const routes = [
         {
             label: 'HOME',
+            subItem: [],
             to: '/'
         }, {
             label: 'DEPARTAMENTOS',
+            subItem: category,
             to: '/departamentos'
         }, {
             label: 'STORE',
+            subItem: [],
             to: '/store'
         }, {
             label: 'LISTA DE DESEJOS',
-            to: '/lista-de-desejos'
+            subItem: [],
+            to: '/wishlist'
         }, {
             label: 'SOBRE',
+            subItem: [],
             to: '/#about'
         }, {
             label: 'CONTATO',
-            to: '/#footer'
+            subItem: [],
+            to: '/#contato'
         }
     ];
 
+    function openMenuCategory(to: string) {
+        if(to === '/departamentos') {
+            setIsSubMenyCategory(!isSubMenuCategory)
+        }
+    }
+
+    useEffect(() => {
+        axios.get('/api/category')
+            .then(response => {
+                setCategory(response.data)
+            })
+    }, [])
+
     return (
         <section className="w-full flex flex-col">
-            <div className="hidden w-full h-14 sm:flex justify-center items-center px-[166px] bg-red">
+            <div className="hidden w-full h-14 sm:flex justify-center items-center px-[166px] bg-[url('/assets/bg-navbar.png')] bg-no-repeat bg-cover bg-origin-border">
                 <p className="uppercase text-white">A LOJA DOS GEEKS MAIS GEEKS É AQUI!</p>
             </div>
-            <header className="w-full py-8 flex flex-col justify-between items-center px-4 bg-white sm:px-8 lg:px-[166px] sm:shadow-md">
+            <header className="w-full py-8 flex flex-col justify-between items-center px-4 bg-white sm:px-8 lg:px-[166px] sm:shadow-md bg-bottom">
                 <div className="w-full flex flex-col gap-4 justify-between items-center pb-4 sm:flex-row">
                     <Image
                         src={'/assets/logo-genkai.png'}
@@ -62,11 +89,12 @@ export function Navbar() {
                             <button>
                                 <MdNotifications size={25} className="text-personBlack hover:text-secundary" />
                             </button>
+                            <Link href={'/cart'}><span>Cart({cartProducts.length})</span></Link>
                         </div>
 
                         <div className={(isOpen ? 'block' : 'hidden') + ' absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'} role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabIndex={-1}>
-                            <Link href={'/yourProfile'} className="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabIndex={-1} id="user-menu-item-0">Your Profile</Link>
-                            <a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabIndex={-1} id="user-menu-item-1">Settings</a>
+                            <Link href={'/yourProfile'} className="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabIndex={-1} id="user-menu-item-0">Minhas Conta</Link>
+                            <Link href={'/orders'} className="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabIndex={-1} id="user-menu-item-1">Minhas Compras</Link>
                             <a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabIndex={-1} id="user-menu-item-2" onClick={() => { }}>Sign out</a>
                         </div>
                     </div>
@@ -107,10 +135,33 @@ export function Navbar() {
                 <nav className="w-full hidden lg:flex justify-center items-center">
                     <ul className="flex gap-4">
                         {routes.map(li => (
+                            li.subItem.length > 0 ?
+                            <li
+                                key={li.to}
+                                className="block cursor-pointer px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 text-personBlack border-t border-transparent hover:text-secundary hover:border-t hover:border-secundary"
+                                onClick={() => openMenuCategory(li.to)}>
+                                {li.label}
+                                {li.subItem.length > 0 ?
+                                    <ul className={(isSubMenuCategory ? 'flex' : 'hidden') + " absolute max-w-[480px] flex-wrap bg-red top-48"}>
+                                        {li.subItem.map(item => (
+                                            <Link
+                                                key={item._id}
+                                                href={'/category/' + item._id}
+                                                className="w-60 block px-8 py-4 sub-title hover:bg-gray-700 text-white hover:bg-personBlack">
+                                                {item.name}
+                                            </Link>
+                                        ))}
+                                    </ul>
+                                    :
+                                    ''
+                                }
+                            </li>
+                            :
                             <Link
                                 key={li.to}
                                 href={li.to}
-                                className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 text-personBlack hover:text-secundary hover:border-t hover:border-secundary">
+                                className="block px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 text-personBlack border-t border-transparent hover:text-secundary hover:border-t hover:border-secundary"
+                                onClick={() => openMenuCategory(li.to)}>
                                 {li.label}
                             </Link>
                         ))}

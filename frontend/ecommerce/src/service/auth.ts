@@ -9,7 +9,6 @@ const delay = (amount = 750) => new Promise(resolve => setTimeout(resolve, amoun
 
 export async function signInRequest(data : ISignInRequestData) {
     await delay()
-    console.log(data)
 
     return {
         token: uuid(),

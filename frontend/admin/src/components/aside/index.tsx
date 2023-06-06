@@ -19,7 +19,7 @@ export function Aside({isOpen, setIsOpen} : IAside) {
         { icon: <AiFillDashboard size={25} />, label: 'DASHBOARD', to: '/dashboard' },
         { icon: <RiProductHuntFill size={25} />, label: 'PRODUTOS', to: '/products' },
         { icon: <RiListOrdered size={25} />, label: 'CATEGORIAS', to: '/categories' },
-        { icon: <MdProductionQuantityLimits size={25} />, label: 'ORDERS', to: '/admin/cadastro-produto' },
+        { icon: <MdProductionQuantityLimits size={25} />, label: 'ORDERS', to: '/orders' },
         // { icon: <BiCategoryAlt size={25}/>, label: 'CADASTRO DE MARCA / CATEGORIA', to: '/admin/cadastro-adicionais' },
         // { icon: <BiUserCircle size={25}/>, label: 'USUÁRIO', to: '/admin/usuario' },
         // { icon: <AiOutlineUserAdd size={25}/>, label: 'CADASTRO DE USUÁRIO', to: '/admin/cadastro-usuario' }

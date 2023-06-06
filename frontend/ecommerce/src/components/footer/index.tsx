@@ -1,9 +1,13 @@
 import { AiFillPhone, AiOutlineWhatsApp } from "react-icons/ai";
 import { SlSocialInstagram } from "react-icons/sl";
 
-export function Footer() {
+interface IFooter {
+    isHome: Boolean
+}
+
+export function Footer({isHome} : IFooter) {
     return (
-        <footer className="flex flex-col justify-center items-center gap-4 px-4 sm:px-8 lg:px-[166px] py-8 bg-red">
+        <footer className={(isHome ? 'bg-secundary' : 'bg-transparent') + " flex flex-col justify-center items-center gap-4 px-4 sm:px-8 lg:px-[166px] py-8 bg-[url('/assets/footer-banner.png')] bg-no-repeat bg-cover bg-origin-border"} id="contato">
             <div className="w-full flex flex-col gap-16 items-start sm:flex-row sm:flex-wrap lg:justify-between">
                 <div className="flex flex-col gap-8">
                     <h3 className="text-white uppercase">atendimento</h3>
