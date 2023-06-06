@@ -6,7 +6,7 @@ import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3'
 import { mongooseConnect } from '../../../lib/mongoose';
 
 
-const bucketName = 'genkai-store'
+const bucketName = 'next-genkaistore'
 
 export default async function handler(
   req: NextApiRequest,
@@ -23,10 +23,10 @@ export default async function handler(
     })
   })
   const client = new S3Client({
-    region: 'us-east-2',
+    region: 'us-east-1',
     credentials: {
-      accessKeyId: process.env.S3_ACCESS_KEY || ${{ secrets.s3_access_key }},
-      secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || ${{ secrets.s3_secret_access_key }}
+      accessKeyId: process.env.S3_ACCESS_KEY,
+      secretAccessKey: process.env.S3_SECRET_ACCESS_KEY
     },
   })
   const links = []
