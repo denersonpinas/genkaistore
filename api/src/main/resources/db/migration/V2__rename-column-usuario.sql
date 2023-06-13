@@ -1,0 +1,1 @@
+ALTER TABLE usuarios CHANGE email login varchar(100) not null unique;
