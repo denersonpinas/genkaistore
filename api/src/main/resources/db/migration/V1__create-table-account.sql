@@ -1,11 +1,12 @@
-create table usuarios(
+create table account(
 
     id bigint not null auto_increment,
     nome varchar(100) not null,
     sobrenome varchar(100) not null,
-    email varchar(100) not null unique,
+    login varchar(100) not null unique,
     senha varchar(255) not null,
     telefone varchar(20),
+    cpf varchar(11) unique,
     logradouro varchar(100),
     bairro varchar(100),
     cep varchar(9),
@@ -16,5 +17,4 @@ create table usuarios(
     ativo tinyint,
 
     primary key(id)
-
 );

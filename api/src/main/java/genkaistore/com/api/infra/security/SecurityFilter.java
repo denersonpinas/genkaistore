@@ -1,6 +1,6 @@
 package genkaistore.com.api.infra.security;
 
-import genkaistore.com.api.domain.usuario.UsuarioRepository;
+import genkaistore.com.api.domain.usuario.AuthenticationRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,7 +20,7 @@ public class SecurityFilter extends OncePerRequestFilter {
     private TokenService tokenService;
 
     @Autowired
-    private UsuarioRepository repository;
+    private AuthenticationRepository repository;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
