@@ -4,6 +4,11 @@ package genkaistore.com.api.domain.product;
 import genkaistore.com.api.domain.brands.Brands;
 import genkaistore.com.api.domain.department.Department;
 import genkaistore.com.api.domain.product.factory.Product;
+import genkaistore.com.api.domain.product.factory.ProductFigure;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+import java.time.LocalDateTime;
 
 
 public record DataDetailProductDTO(
@@ -16,11 +21,17 @@ public record DataDetailProductDTO(
 
         Integer quantidade,
 
-        Brands marca,
+        String dimenssao,
 
-        Department departamento
+        UnidadeMedida unidadeMedida,
+
+        String material,
+
+        String peso,
+
+        LocalDateTime data
 ) {
-    public DataDetailProductDTO(Product data) {
-        this(data.getNome(), data.getDescricao(), data.getPreco(), data.getQuantidade(), data.getMarca(), data.getDepartamento());
+    public DataDetailProductDTO(ProductFigure data) {
+        this(data.getNome(), data.getDescricao(), data.getPreco(), data.getQuantidade(), data.getDimenssao(), data.getUnidadeMedida(), data.getMaterial(), data.getPeso(), data.getData());
     }
 }
