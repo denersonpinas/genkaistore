@@ -1,0 +1,2 @@
+ALTER TABLE department
+CHANGE idSubDepartment id_Sub_Department bigint;

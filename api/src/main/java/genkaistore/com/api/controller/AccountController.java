@@ -34,7 +34,7 @@ public class AccountController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteUser(@PathVariable Long id) {
+    public ResponseEntity removeUser(@PathVariable Long id) {
         return accountService.deleteUser(id);
     }
 }
