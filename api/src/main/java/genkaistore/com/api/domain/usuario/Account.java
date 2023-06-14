@@ -86,4 +86,38 @@ public class Account implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public void updateInfor(DataUpdateAccountDTO data) {
+        if(data.nome() != null) {
+            this.nome = data.nome();
+        }
+
+        if(data.sobrenome() != null) {
+            this.sobrenome = data.sobrenome();
+        }
+
+        if(data.login() != null) {
+            this.login = data.login();
+        }
+
+        if(data.senha() != null) {
+            this.senha = data.senha();
+        }
+
+        if(data.cpf() != null) {
+            this.cpf = data.cpf();
+        }
+
+        if(data.telefone() != null) {
+            this.telefone = data.telefone();
+        }
+
+        if(data.endereco() != null) {
+            this.endereco.updateInfors(data.endereco());
+        }
+    }
+
+    public void excluir() {
+        this.ativo = false;
+    }
 }
