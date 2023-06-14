@@ -28,9 +28,7 @@ public class ProductService {
     public ResponseEntity addProduct(DataCreateProductDTO data, UriComponentsBuilder uriBuilder) {
         var marca = brandsRepository.getReferenceById(data.idMarca());
         var departamento = departmentRepository.getReferenceById(data.idDepartment());
-
         var product = factoryProductFigure.createProduct(data, marca, departamento);
-
 //        List<Images> images = new ArrayList<>();
 //        for (DataImageDTO imageDTO : data.images()) {
 //            Images image = new Images();
@@ -41,8 +39,7 @@ public class ProductService {
 
 //        product.setImages(images);
         repository.save((ProductFigure) product);
-        var uri = uriBuilder.path("/products/{id}").buildAndExpand(product.getId()).toUri();
-
-        return ResponseEntity.created(uri).body(new DataDetailProductDTO(product));
+        var uri = uriBuilder.path("/product/{id}").buildAndExpand(product.getId()).toUri();
+        return ResponseEntity.created(uri).body(new DataDetailProductDTO((ProductFigure) product));
     }
 }
