@@ -3,6 +3,7 @@ package genkaistore.com.api.domain.product.factory;
 import genkaistore.com.api.domain.brands.Brands;
 import genkaistore.com.api.domain.department.Department;
 import genkaistore.com.api.domain.product.DataCreateProductDTO;
+import genkaistore.com.api.domain.product.DataUpdateProductDTO;
 import genkaistore.com.api.domain.product.UnidadeMedida;
 import jakarta.persistence.*;
 import lombok.*;
@@ -44,6 +45,7 @@ public class ProductFigure implements Product {
     private Boolean ativo;
 
     public ProductFigure(DataCreateProductDTO data, Brands marca, Department department) {
+        this.ativo = true;
         this.nome = data.nome();
         this.descricao = data.descricao();
         this.preco = data.preco();
@@ -55,7 +57,6 @@ public class ProductFigure implements Product {
         this.material = data.material();
         this.peso = data.peso();
         this.data = data.data();
-
     }
 
 
@@ -87,5 +88,44 @@ public class ProductFigure implements Product {
     @Override
     public Department getDepartamento() {
         return this.departamento;
+    }
+
+    public void updateInfors(DataUpdateProductDTO data) {
+        if(data.nome() != null) {
+            this.nome = data.nome();
+        }
+
+        if(data.descricao() != null) {
+            this.descricao = data.descricao();
+        }
+
+        if(data.preco() != null) {
+            this.preco = data.preco();
+        }
+
+        if(data.quantidade() != null) {
+            this.quantidade = data.quantidade();
+        }
+
+        if(data.dimenssao() != null) {
+            this.dimenssao = data.dimenssao();
+        }
+
+        if(data.unidadeMedida() != null) {
+            this.unidadeMedida = data.unidadeMedida();
+        }
+
+        if(data.material() != null) {
+            this.material = data.material();
+        }
+
+        if(data.peso() != null) {
+            this.peso = data.peso();
+        }
+
+    }
+
+    public void excluir() {
+        this.ativo = false;
     }
 }

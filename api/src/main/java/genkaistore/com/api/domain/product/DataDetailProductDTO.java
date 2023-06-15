@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 
 
 public record DataDetailProductDTO(
+        Long id,
 
         String nome,
 
@@ -32,6 +33,6 @@ public record DataDetailProductDTO(
         LocalDateTime data
 ) {
     public DataDetailProductDTO(ProductFigure data) {
-        this(data.getNome(), data.getDescricao(), data.getPreco(), data.getQuantidade(), data.getDimenssao(), data.getUnidadeMedida(), data.getMaterial(), data.getPeso(), data.getData());
+        this(data.getId(),data.getNome(), data.getDescricao(), data.getPreco(), data.getQuantidade(), data.getDimenssao(), data.getUnidadeMedida(), data.getMaterial(), data.getPeso(), data.getData());
     }
 }
