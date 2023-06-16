@@ -5,6 +5,8 @@ import genkaistore.com.api.domain.department.DataDetailDepartmentDTO;
 import genkaistore.com.api.domain.department.DepartmentRepository;
 import genkaistore.com.api.domain.product.factory.FactoryProductFigure;
 import genkaistore.com.api.domain.product.factory.ProductFigure;
+import genkaistore.com.api.domain.product.observer.Publisher;
+import genkaistore.com.api.domain.product.proxy.ProxyInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,7 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 
 @Service
-public class ProductService {
+public class ProductService implements ProxyInterface {
 
     @Autowired
     private ProductRepository repository;
@@ -28,6 +30,9 @@ public class ProductService {
 
     @Autowired
     private FactoryProductFigure factoryProductFigure;
+
+    @Autowired
+    private Publisher publisher;
 
     @Transactional
     public ResponseEntity addProduct(DataCreateProductDTO data, UriComponentsBuilder uriBuilder) {
@@ -62,8 +67,13 @@ public class ProductService {
     public ResponseEntity updateProduct(DataUpdateProductDTO data) {
         var product = repository.getReferenceById(data.id());
         product.updateInfors(data);
+        var response = ResponseEntity.ok(new DataDetailProductDTO(product));
 
-        return ResponseEntity.ok(new DataDetailProductDTO(product));
+        if(data.preco() != null) {
+            publisher.notifyObserver(product.getId());
+        }
+
+        return response;
     }
 
     @Transactional

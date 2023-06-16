@@ -6,6 +6,7 @@ import genkaistore.com.api.domain.product.DataCreateProductDTO;
 import genkaistore.com.api.domain.product.DataDetailProductDTO;
 import genkaistore.com.api.domain.product.DataUpdateProductDTO;
 import genkaistore.com.api.domain.product.ProductService;
+import genkaistore.com.api.domain.product.proxy.ProxyProduct;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,31 +21,31 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class ProductController {
 
     @Autowired
-    private ProductService productService;
+    private ProxyProduct proxyProduct;
 
     @PostMapping
     public ResponseEntity addProduct(@RequestBody @Valid DataCreateProductDTO data, UriComponentsBuilder uriBuilder) {
-        return productService.addProduct(data, uriBuilder);
+        return proxyProduct.addProduct(data, uriBuilder);
     }
 
     @GetMapping
     public ResponseEntity<Page<DataDetailProductDTO>> listProduct(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
-        return productService.listProduct(paginacao);
+        return proxyProduct.listProduct(paginacao);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity detailProduct(@PathVariable Long id){
-        return productService.detailProduct(id);
+        return proxyProduct.detailProduct(id);
     }
 
     @PutMapping
     public ResponseEntity updateProduct(@RequestBody @Valid DataUpdateProductDTO data) {
-        System.out.println("AQUIIII");
-        return productService.updateProduct(data);
+        var dto = proxyProduct.updateProduct(data);
+        return dto;
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity removeProduct(@PathVariable Long id) {
-        return productService.removeProduct(id);
+        return proxyProduct.removeProduct(id);
     }
 }
